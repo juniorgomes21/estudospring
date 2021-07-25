@@ -8,12 +8,13 @@ import com.estudospring.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+
+import javax.validation.Valid;
 
 @Controller
 public class ProfessorController {
@@ -38,23 +39,22 @@ public class ProfessorController {
         return mv;
     }
 
-//    @PostMapping("/professores")
-//    public ModelAndView msgerro() {
-//        ModelAndView msgero = new ModelAndView("professores/index");
-//        return msgero;
-//    }
-
+ 
     @PostMapping("/professores")
-    public String create(@Validated RequisicaoNovoProfessor requisicao, BindingResult bindingResult){
+    public ModelAndView create(@Valid RequisicaoNovoProfessor requisicao, BindingResult bindingResult){
         if(bindingResult.hasErrors()) {
-            System.out.println("Entrou no if");
-//            msgerro();
-            return "redirect:/novoprofessor";
+            System.out.println("\n\n\n\n\n\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Entrou no if");
+            ModelAndView mv = new ModelAndView("professores/novoprofessor");
+            mv.addObject("listaStatusProfessor", StatusProfessor.values());
+
+            return mv;
         }
         else {
             Professor professor = requisicao.makeProfessor();
+            System.out.println(professor.toString());
             this.professorRepositories.save(professor);
-            return "redirect:/professores";
+
+            return new ModelAndView("redirect:/professores");
         }
     }
 

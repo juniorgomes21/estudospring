@@ -4,28 +4,66 @@ import java.math.BigDecimal;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
-
-import org.springframework.lang.NonNull;
+import javax.validation.constraints.NotNull;
 
 import com.estudospring.models.Professor;
 import com.estudospring.models.StatusProfessor;
 
 public class RequisicaoNovoProfessor {
-	@NonNull
 	@NotBlank
     private String nome;
+    @NotNull
     @DecimalMin("0.0")
-    @NonNull
     private BigDecimal salario;
+    @NotNull
     private StatusProfessor statusProfessor;
     //    private Professor professor;
 
 
-    public RequisicaoNovoProfessor(@NotBlank String nome, @DecimalMin("0.0") BigDecimal salario,
-			StatusProfessor statusProfessor) {
+    public RequisicaoNovoProfessor(
+		@NotBlank String nome, 
+		@DecimalMin("0.0") 
+		BigDecimal salario,
+		StatusProfessor statusProfessor) {
 		super();
 		this.nome = nome;
 		this.salario = salario;
+		this.statusProfessor = statusProfessor;
+	}
+
+    
+
+	public String getNome() {
+		return nome;
+	}
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+	public BigDecimal getSalario() {
+		return salario;
+	}
+
+
+
+	public void setSalario(BigDecimal salario) {
+		this.salario = salario;
+	}
+
+
+
+	public StatusProfessor getStatusProfessor() {
+		return statusProfessor;
+	}
+
+
+
+	public void setStatusProfessor(StatusProfessor statusProfessor) {
 		this.statusProfessor = statusProfessor;
 	}
 
@@ -33,10 +71,12 @@ public class RequisicaoNovoProfessor {
 
 	public Professor makeProfessor() {
 		Professor professor = new Professor();
-        professor.setNome(this.nome);
-        professor.setSalario(this.salario);
-        professor.setStatusProfessor(this.statusProfessor);
-
+//      professor.setNome(this.nome);
+//      professor.setSalario(this.salario);
+//      professor.setStatusProfessor(this.statusProfessor);
+        professor.nome = this.nome;
+        professor.salario = this.salario;
+        professor.statusProfessor = this.statusProfessor;
         return professor;
     }
 

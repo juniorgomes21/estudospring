@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 public class Professor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    public Long id;
     @Column(nullable = false)
     public String nome;
     public BigDecimal salario;
@@ -19,38 +19,38 @@ public class Professor {
     public StatusProfessor statusProfessor;
 
     public Professor() {}
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setSalario(BigDecimal salario) {
-        this.salario = salario;
-    }
-
-    public void setStatusProfessor(StatusProfessor statusProfessor) {
-        this.statusProfessor = statusProfessor;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome(@NotBlank String nome) {
-        return this.nome;
-    }
-
-    public BigDecimal getSalario(@NotNull @DecimalMin("0.0") BigDecimal salario) {
-        return this.salario;
-    }
-
-    public StatusProfessor getStatusProfessor(StatusProfessor statusProfessor) {
-        return this.statusProfessor;
-    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public void setNome(String nome) {
+//        this.nome = nome;
+//    }
+//
+//    public void setSalario(BigDecimal salario) {
+//        this.salario = salario;
+//    }
+//
+//    public void setStatusProfessor(StatusProfessor statusProfessor) {
+//        this.statusProfessor = statusProfessor;
+//    }
+//
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public String getNome(@NotBlank String nome) {
+//        return this.nome;
+//    }
+//
+//    public BigDecimal getSalario(@NotNull @DecimalMin("1.0") BigDecimal salario) {
+//        return this.salario;
+//    }
+//
+//    public StatusProfessor getStatusProfessor(StatusProfessor statusProfessor) {
+//        return this.statusProfessor;
+//    }
 
     @Override
     public String toString() {
