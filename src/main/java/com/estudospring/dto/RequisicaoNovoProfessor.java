@@ -17,10 +17,9 @@ public class RequisicaoNovoProfessor {
     private BigDecimal salario;
     @NotNull
     private StatusProfessor statusProfessor;
-    //    private Professor professor;
 
 
-    public RequisicaoNovoProfessor(
+    /* public RequisicaoNovoProfessor(
 		@NotBlank String nome, 
 		@DecimalMin("0.0") 
 		BigDecimal salario,
@@ -29,7 +28,7 @@ public class RequisicaoNovoProfessor {
 		this.nome = nome;
 		this.salario = salario;
 		this.statusProfessor = statusProfessor;
-	}
+	} */
 
     
 
@@ -71,9 +70,6 @@ public class RequisicaoNovoProfessor {
 
 	public Professor makeProfessor() {
 		Professor professor = new Professor();
-//      professor.setNome(this.nome);
-//      professor.setSalario(this.salario);
-//      professor.setStatusProfessor(this.statusProfessor);
         professor.nome = this.nome;
         professor.salario = this.salario;
         professor.statusProfessor = this.statusProfessor;

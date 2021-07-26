@@ -32,9 +32,9 @@ public class ProfessorController {
     }
 
     @GetMapping("/novoprofessor")
-    public ModelAndView novo() {
+    public ModelAndView novo(RequisicaoNovoProfessor requisicao) {
         ModelAndView mv = new ModelAndView("professores/novoprofessor");
-        mv.addObject("statusProfessor", StatusProfessor.values());
+        mv.addObject("listaStatusProfessor", StatusProfessor.values());
 
         return mv;
     }

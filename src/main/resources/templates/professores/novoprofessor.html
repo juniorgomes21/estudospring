@@ -12,22 +12,46 @@
 </head>
   <body>
     <div class="container">
-      <div class="row">
+      <div class="row g-3 needs-validation">
           <form th:object="${requisicaoNovoProfessor}" action="/professores" method="POST">
-              <div class="mb-3">
-                  <label for="from-label">Nome do Professor</label>
-                  <input class="form-control" type="text" th:field="${requisicaoNovoProfessor.nome}">
-                  <div></div>
+              <div class="mb-3" >
+                  <label class="from-label">Nome do Professor</label>
+                  <input class="form-control  is-invalid" type="text" th:field="*{nome}">
+                  <div class="invalid-feedback" th:onerrors:="*{nome}"></div>
+                 <!-- <div class="valid-feedback">Looks good!</div> -->
               </div>
+
+
+             <!-- <div class="col-md-6">
+                <label for="validationCustom03" class="form-label">City</label>
+                <input type="text" class="form-control" id="validationCustom03" required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <label for="validationCustomUsername" class="form-label">Username</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="inputGroupPrepend">@</span>
+                  <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                  <div class="invalid-feedback">
+                    Please choose a username.
+                  </div>
+                </div>
+              </div> -->
+
+
+
               <div class="mb-3">
-                  <label for="from-label">Salário</label>
-                  <input class="form-control" type="text" th:field="${requisicaoNovoProfessor.salario}">
-                  <div></div>
+                  <label class="from-label">Salário</label>
+                  <input class="form-control" type="text" th:field="*{salario}">
+                  <!-- <div class="invalid-feedback" th:if="${#fields.hasErrors('nome')}" th:errors:="*{nome}">Incorrect date</div> -->
               </div>
 			  <div class="mb-3">
-			      <label for="from-label">Status</label>
-			      <select class="form-select" name="statusProfessor">
-			          <option th:each="status : ${listaStatusProfessor}" th:text="${status}"></option>
+			      <label class="from-label">Status</label>
+			      <select class="form-select" th:field="*{statusProfessor}">
+			          <option th:each="status : ${listaStatusProfessor}" th:value="${status}" th:text="${status}"></option>
 			      </select>
 			  </div>
               <button class="bnt bnt-primary" type="submit">Subimeter</button>
