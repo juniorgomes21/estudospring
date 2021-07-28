@@ -37,8 +37,8 @@
                         <td class="col-2" th:text="${professor.salario}">Salário</td>
                         <td class="col-2" th:text="${professor.statusProfessor}">STATUS</td>
                         <td class="col-1"><a th:href="@{/professor/{professorId}(professorId = ${professor.id})}">Detalhes</a></td>
-                        <td class="col-1"><a>Editar</a></td>
-                        <td class="col-1"><a>Deletar</a></td>
+                        <td class="col-1"><a th:href="@{/professor_edit/{professorId}(professorId = ${professor.id})}">Editar</a></td></td>
+                        <td class="col-1"><a th:href="@{/professor/{professorId}/delete(professorId = ${professor.id})}">Deletar</a></td>
                     </tr>
                     </tbody>
                 </table>

@@ -76,5 +76,19 @@ public class RequisicaoNovoProfessor {
         return professor;
     }
 
+	public Professor makeProfessor(Professor professor) {
+		professor.setNome(this.nome);
+		professor.setSalario(this.salario);
+		professor.setStatusProfessor(this.statusProfessor);
+
+		return professor;
+	}
+
+	public void fromProfessor(Professor professor) {
+		this.nome= professor.getNome(nome);
+		this.salario = professor.getSalario(salario);
+		this.statusProfessor = professor.getStatusProfessor(statusProfessor);
+
+	}
 
 }
